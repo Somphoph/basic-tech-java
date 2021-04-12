@@ -2,21 +2,16 @@ package org.learn.sort;
 
 import java.util.Arrays;
 
-public class SelectionSort {
+public class InsertionSort {
     public static void sort(int[] array) {
         int length = array.length;
-        for (int i = 0; i < length; i++) {
-            int min = i;
-            for (int j = i + 1; j < length; j++) {
-                if (array[j] < array[min]) {
-                    min = j;
-                }
+        for (int i = 1; i < length; i++) {
+            int hold = i;
+            while (hold > 0 && (array[hold] < array[hold - 1])) {
+                swap(array, hold - 1, hold);
+                hold = hold - 1;
+                System.out.println(Arrays.toString(array));
             }
-
-            if (i != min) {
-                swap(array, i, min);
-            }
-            System.out.println(Arrays.toString(array));
         }
     }
 
@@ -32,7 +27,7 @@ public class SelectionSort {
         System.out.println(Arrays.toString(data));
 
         int size = data.length;
-        SelectionSort.sort(data);
+        sort(data);
 
         System.out.println("Sorted Array in Ascending Order: ");
         System.out.println(Arrays.toString(data));
