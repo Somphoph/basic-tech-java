@@ -21,12 +21,6 @@ public class QuickSort {
         return mid;
     }
 
-    private static void swap(int[] array, int first, int second) {
-        int temp = array[second];
-        array[second] = array[first];
-        array[first] = temp;
-    }
-
     static void quickSort(int array[], int low, int high) {
         if (low < high) {
 
@@ -41,6 +35,12 @@ public class QuickSort {
             // recursive call on the right of pivot
             quickSort(array, pi + 1, high);
         }
+    }
+
+    private static void swap(int[] array, int first, int second) {
+        int temp = array[second];
+        array[second] = array[first];
+        array[first] = temp;
     }
 
     public static void main(String[] args) {
